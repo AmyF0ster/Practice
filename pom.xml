@@ -9,7 +9,7 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>io.foster</groupId>
-	<artifactId>practice</artifactId>
+	<artifactId>AwesomeApp</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name/>
 	<description/>

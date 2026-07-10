@@ -1,16 +1,18 @@
 package io.foster.awesomeapp;
 
 import lombok.Getter;
-import lombok.Setter;
 
 @Getter
-@Setter
-public class DayType {
-    private int dayTypeId;
-    private String dayType;
+public enum DayType {
+    WORKDAY(1, "Работает"),
+    VACATION(2, "В отпуске"),
+    DAYOFF(3, "Отгул");
+    private Integer dayTypeId;
+    private String description;
 
-    public DayType(int dayTypeId, String dayType){
-        this.dayTypeId=dayTypeId;
-        this.dayType=dayType;
+    DayType(Integer dayTypeId, String description) {
+        this.dayTypeId = dayTypeId;
+        this.description = description;
     }
+
 }

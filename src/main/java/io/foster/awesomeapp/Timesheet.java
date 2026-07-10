@@ -2,22 +2,28 @@ package io.foster.awesomeapp;
 
 import lombok.Getter;
 import lombok.Setter;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.relational.core.mapping.Column;
 
 import java.util.Date;
+
 @Getter
 @Setter
 public class Timesheet {
-    private int recordId;
+    @Id
+    private Integer recordId;
     private Date date;
-    private int employeeFK;
+    @Column("employee_FK")
+    private Integer employeeId;
     private Float hours;
-    private int dayTypeFK;
+    @Column("day_type_FK")
+    private Integer dayTypeId;
 
-    public Timesheet(int recordId, Date date, int employeeFK, Float hours, int dayTypeFK){
-        this.recordId=recordId;
-        this.date=date;
-        this.employeeFK=employeeFK;
-        this.hours=hours;
-        this.dayTypeFK=dayTypeFK;
+    public Timesheet(Integer recordId, Date date, Integer employeeFK, Float hours, Integer dayTypeFK) {
+        this.recordId = recordId;
+        this.date = date;
+        this.employeeId = employeeFK;
+        this.hours = hours;
+        this.dayTypeId = dayTypeFK;
     }
 }

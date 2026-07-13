@@ -1,14 +1,12 @@
 package io.foster.awesomeapp;
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.Data;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.relational.core.mapping.Column;
 
 import java.util.Date;
 
-@Getter
-@Setter
+@Data
 public class Timesheet {
     @Id
     private Integer recordId;

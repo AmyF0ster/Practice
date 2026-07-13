@@ -8,7 +8,7 @@ public enum DayType {
     WORKDAY(1, "Работает"),
     VACATION(2, "В отпуске"),
     DAYOFF(3, "Отгул");
-    @Id
+
     private Integer dayTypeId;
     private String description;
 

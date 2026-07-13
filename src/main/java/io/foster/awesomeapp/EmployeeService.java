@@ -14,10 +14,12 @@ public class EmployeeService {
     public List<Employee> getAllEmployees() {
         return (List<Employee>) employeeRepository.findAll();
     }
-    public Employee getEmployeeById(Integer id){
-        Optional<Employee> employee = employeeRepository.findById(id);
-        return employee.get();
+
+    public Employee getEmployeeById(Integer id) {
+        return employeeRepository.findById(id)
+                .orElseThrow(() -> new IllegalArgumentException("Сотрудник с таким id не найден"));
     }
+
     public Employee saveEmployee(Employee employee) {
         return employeeRepository.save(employee);
     }

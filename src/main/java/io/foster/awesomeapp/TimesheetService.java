@@ -6,8 +6,12 @@ import java.util.List;
 import java.util.Optional;
 
 public class TimesheetService {
-    @Autowired
-    private TimesheetRepository timesheetRepository;
+
+    private final TimesheetRepository timesheetRepository;
+
+    public TimesheetService(TimesheetRepository timesheetRepository) {
+        this.timesheetRepository = timesheetRepository;
+    }
 
     public List<Timesheet> getAllRecords() {
         return (List<Timesheet>) timesheetRepository.findAll();

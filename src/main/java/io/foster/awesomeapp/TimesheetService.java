@@ -15,7 +15,7 @@ public class TimesheetService {
 
     public Timesheet getRecordById(Integer id) {
         return timesheetRepository.findById(id)
-                .orElseThrow(() -> new IllegalArgumentException("Запись с таким id не найден"));
+                .orElseThrow(() -> new NotFoundException(id, "Запись"));
     }
 
     public Timesheet saveRecord(Timesheet timesheet) {

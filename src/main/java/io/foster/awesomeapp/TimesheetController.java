@@ -17,7 +17,7 @@ public class TimesheetController {
         this.timesheetService = timesheetService;
     }
 
-    @GetMapping("/timesheets")
+    @GetMapping
     public List<Timesheet> getRecord() {
         return timesheetService.getAllRecords();
     }

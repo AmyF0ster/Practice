@@ -20,7 +20,7 @@ public class EmployeeService {
 
     public Employee getEmployeeById(Integer id) {
         return employeeRepository.findById(id)
-                .orElseThrow(() -> new IllegalArgumentException("Сотрудник с таким id не найден"));
+                .orElseThrow(() -> new NotFoundException(id, "Сотрудник"));
     }
 
     public Employee saveEmployee(Employee employee) {

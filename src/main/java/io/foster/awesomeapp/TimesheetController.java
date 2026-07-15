@@ -10,8 +10,12 @@ import java.util.List;
 @RestController
 @RequestMapping("/timesheets")
 public class TimesheetController {
-    @Autowired
-    private TimesheetService timesheetService;
+
+    private final TimesheetService timesheetService;
+
+    public TimesheetController(TimesheetService timesheetService) {
+        this.timesheetService = timesheetService;
+    }
 
     @GetMapping
     public List<Timesheet> getRecord() {

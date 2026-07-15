@@ -7,7 +7,8 @@ import org.springframework.data.annotation.Id;
 public enum DayType {
     WORKDAY(1, "Работает"),
     VACATION(2, "В отпуске"),
-    DAYOFF(3, "Отгул");
+    DAYOFF(3, "Отгул"),
+    SICKDAY(4, "Больничный");
 
     private Integer dayTypeId;
     private String description;

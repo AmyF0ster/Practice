@@ -20,12 +20,13 @@ public class Timesheet {
     private Float hours;
     @Column("DAY_TYPE_FK")
     private Integer dayTypeId;
-
-    public Timesheet(Integer recordId, LocalDate date, Integer employeeFK, Float hours, Integer dayTypeFK) {
+    public Timesheet() {
+    }
+    public Timesheet(Integer recordId, LocalDate date, Integer employeeId, Float hours, Integer dayTypeId) {
         this.recordId = recordId;
         this.date = date;
-        this.employeeId = employeeFK;
+        this.employeeId = employeeId;
         this.hours = hours;
-        this.dayTypeId = dayTypeFK;
+        this.dayTypeId = dayTypeId;
     }
 }

@@ -3,8 +3,10 @@ package io.foster.awesomeapp;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
+
 @Service
 public class TimesheetService {
 
@@ -25,5 +27,9 @@ public class TimesheetService {
 
     public Timesheet saveRecord(Timesheet timesheet) {
         return timesheetRepository.save(timesheet);
+    }
+
+    public List<Timesheet> getTimesheetsByIdAndDate(Integer employeeId, LocalDate startDate, LocalDate endDate) {
+        return timesheetRepository.findByEmployeeIdAndDateBetween(employeeId, startDate, endDate);
     }
 }

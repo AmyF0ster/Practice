@@ -9,9 +9,11 @@ import java.util.List;
 public class EmployeeService {
 
     private final EmployeeRepository employeeRepository;
+    private final EmployeeMapper employeeMapper;
 
-    public EmployeeService(EmployeeRepository employeeRepository) {
+    public EmployeeService(EmployeeRepository employeeRepository, EmployeeMapper employeeMapper) {
         this.employeeRepository = employeeRepository;
+        this.employeeMapper = employeeMapper;
     }
 
     public List<Employee> getAllEmployees() {
@@ -25,5 +27,13 @@ public class EmployeeService {
 
     public Employee saveEmployee(Employee employee) {
         return employeeRepository.save(employee);
+    }
+
+    public Employee updateEmployee(Integer id, EmployeeDTO dto) {
+        Employee employee = employeeRepository.findById(id)
+                .orElseThrow(() -> new NotFoundException(id, "Сотрудник"));
+        Employee updatedEmployee = employeeMapper.employeeMap(dto);
+        updatedEmployee.setEmployeeId(id);
+        return employeeRepository.save(updatedEmployee);
     }
 }

@@ -1,6 +1,5 @@
 package io.foster.awesomeapp;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -37,7 +36,7 @@ public class TimesheetController {
 
     @GetMapping
     public ResponseEntity<List<Timesheet>> getTimesheetsByIdAndDate(@RequestParam Integer employeeId, @RequestParam LocalDate startDate, LocalDate endDate) {
-        List<Timesheet> timesheets = timesheetService.getTimesheetsByIdAndDate(employeeId, startDate, endDate);
+        List<Timesheet> timesheets = timesheetService.getTimesheetsByEmployeeIdAndDate(employeeId, startDate, endDate);
         return ResponseEntity.ok(timesheets);
     }
 }

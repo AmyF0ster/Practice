@@ -40,4 +40,9 @@ public class TimesheetController {
         List<Timesheet> timesheets = timesheetService.getTimesheetsByEmployeeIdAndDate(employeeId, startDate, endDate);
         return ResponseEntity.ok(timesheets);
     }
+
+    @PatchMapping("/{id}")
+    public ResponseEntity<Timesheet> patchForHoursAndDayType(@PathVariable Integer id, @RequestBody TimesheetPatchDTO dto) {
+        return ResponseEntity.ok(timesheetService.patchForHoursAndDayType(id, dto));
+    }
 }

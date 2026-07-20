@@ -32,4 +32,18 @@ public class TimesheetService {
     public List<Timesheet> getTimesheetsByEmployeeIdAndDate(Integer employeeId, LocalDate startDate, LocalDate endDate) {
         return timesheetRepository.findByEmployeeIdAndDateBetween(employeeId, startDate, endDate);
     }
+
+    public Timesheet patchForHoursAndDayType(Integer id, TimesheetPatchDTO dto) {
+        Timesheet record = timesheetRepository.findById(id)
+                .orElseThrow(() -> new NotFoundException(id, "Запись"));
+        if (dto.getHours() != null) {
+            if (dto.getHours() >= 0 || dto.getHours() <= 24) {
+                record.setHours(dto.getHours());
+            }
+        }
+        if (dto.getDayTypeId() != null) {
+            record.setDayTypeId(dto.getDayTypeId());
+        }
+        return timesheetRepository.save(record);
+    }
 }

@@ -36,8 +36,8 @@ public class TimesheetController {
     }
 
     @GetMapping
-    public ResponseEntity<List<Timesheet>> getTimesheetsByIdAndDate(@RequestParam Integer employeeId, @RequestParam LocalDate startDate, LocalDate endDate) {
-        List<Timesheet> timesheets = timesheetService.getTimesheetsByIdAndDate(employeeId, startDate, endDate);
+    public ResponseEntity<List<Timesheet>> getTimesheetsByEmplyeeIdAndDate(@RequestParam Integer employeeId, @RequestParam LocalDate startDate, LocalDate endDate) {
+        List<Timesheet> timesheets = timesheetService.getTimesheetsByEmployeeIdAndDate(employeeId, startDate, endDate);
         return ResponseEntity.ok(timesheets);
     }
 }

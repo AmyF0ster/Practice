@@ -29,7 +29,7 @@ public class TimesheetService {
         return timesheetRepository.save(timesheet);
     }
 
-    public List<Timesheet> getTimesheetsByIdAndDate(Integer employeeId, LocalDate startDate, LocalDate endDate) {
+    public List<Timesheet> getTimesheetsByEmployeeIdAndDate(Integer employeeId, LocalDate startDate, LocalDate endDate) {
         return timesheetRepository.findByEmployeeIdAndDateBetween(employeeId, startDate, endDate);
     }
 }

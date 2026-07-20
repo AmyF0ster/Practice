@@ -1,6 +1,5 @@
 package io.foster.awesomeapp;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -32,7 +31,7 @@ public class EmployeeService {
     public Employee updateEmployee(Integer id, EmployeeDTO dto) {
         Employee employee = employeeRepository.findById(id)
                 .orElseThrow(() -> new NotFoundException(id, "Сотрудник"));
-        Employee updatedEmployee = employeeMapper.employeeMap(dto);
+        Employee updatedEmployee = employeeMapper.mapToEmployee(dto);
         updatedEmployee.setEmployeeId(id);
         return employeeRepository.save(updatedEmployee);
     }

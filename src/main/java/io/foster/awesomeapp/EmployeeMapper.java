@@ -4,7 +4,7 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class EmployeeMapper {
-    public Employee employeeMap(EmployeeDTO dto) {
+    public Employee mapToEmployee(EmployeeDTO dto) {
         Employee employee = new Employee();
         employee.setName(dto.getName());
         employee.setPosition(dto.getPosition());

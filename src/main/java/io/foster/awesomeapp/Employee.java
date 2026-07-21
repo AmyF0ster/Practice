@@ -20,6 +20,9 @@ public class Employee {
     @Column("HIRING_DATE")
     private LocalDate hiringDate;
 
+    public Employee() {
+    }
+
     public Employee(Integer employeeId, String name, String position, String department, LocalDate hiringDate) {
         this.employeeId = employeeId;
         this.name = name;

@@ -33,4 +33,8 @@ public class EmployeeController {
         Employee newEmployee = employeeService.saveEmployee(employee);
         return ResponseEntity.status(HttpStatus.CREATED).body(newEmployee);
     }
+    @PutMapping("/{id}")
+    public ResponseEntity<Employee> update (@PathVariable Integer id, @RequestBody EmployeeDTO dto) {
+        return ResponseEntity.ok(employeeService.updateEmployee(id,dto));
+    }
 }

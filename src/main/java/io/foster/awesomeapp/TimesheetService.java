@@ -33,7 +33,7 @@ public class TimesheetService {
         return timesheetRepository.findByEmployeeIdAndDateBetween(employeeId, startDate, endDate);
     }
 
-    public Timesheet patchForHoursAndDayType(Integer id, TimesheetPatchDTO dto) {
+    public Timesheet patchTimesheet(Integer id, TimesheetPatchDTO dto) {
         Timesheet record = timesheetRepository.findById(id)
                 .orElseThrow(() -> new NotFoundException(id, "Запись"));
         if (dto.getHours() != null) {

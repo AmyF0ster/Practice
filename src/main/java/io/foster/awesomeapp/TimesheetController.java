@@ -42,7 +42,7 @@ public class TimesheetController {
     }
 
     @PatchMapping("/{id}")
-    public ResponseEntity<Timesheet> patchForHoursAndDayType(@PathVariable Integer id, @RequestBody TimesheetPatchDTO dto) {
+    public ResponseEntity<Timesheet> patchTimesheet(@PathVariable Integer id, @RequestBody TimesheetPatchDTO dto) {
         return ResponseEntity.ok(timesheetService.patchForHoursAndDayType(id, dto));
     }
 }

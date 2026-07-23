@@ -1,21 +1,22 @@
 package io.foster.awesomeapp;
 
-import lombok.Getter;
-import org.springframework.data.annotation.Id;
+import lombok.Data;
+import org.springframework.data.relational.core.mapping.Column;
 
-@Getter
-public enum DayType {
-    WORKDAY(1, "Работает"),
-    VACATION(2, "В отпуске"),
-    DAYOFF(3, "Отгул"),
-    SICKDAY(4, "Больничный");
+@Data
+public class DayType {
+    //  WORKDAY(1, "Работает"),
+    //  VACATION(2, "В отпуске"),
+    // DAYOFF(3, "Отгул"),
+    //SICKDAY(4, "Больничный");
 
     private Integer dayTypeId;
+    @Column("DAY_TYPE")
     private String description;
 
-    DayType(Integer dayTypeId, String description) {
+    DayType(Integer dayTypeId, String dayType) {
         this.dayTypeId = dayTypeId;
-        this.description = description;
+        this.description = dayType;
     }
 
 }

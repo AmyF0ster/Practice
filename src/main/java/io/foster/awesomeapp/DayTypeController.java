@@ -22,8 +22,8 @@ public class DayTypeController {
     }
 
     @PostMapping
-    public ResponseEntity<DayType> createDayType(@RequestBody DayType dayType) {
-        DayType newDayType = dayTypeService.saveDayType(dayType);
+    public ResponseEntity<DayType> createDayType(@RequestBody DayTypePatchDTO dto) {
+        DayType newDayType = dayTypeService.createDayType(dto);
         return ResponseEntity.status(HttpStatus.CREATED).body(newDayType);
     }
 

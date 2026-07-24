@@ -16,14 +16,16 @@ public class DayTypeService {
         return (List<DayType>) dayTypeRepository.findAll();
     }
 
-    public DayType saveDayType(DayType dayType) {
+    public DayType createDayType(DayTypePatchDTO dto) {
+        DayType dayType = new DayType();
+        dayType.setDescription(dto.getDescription());
         return dayTypeRepository.save(dayType);
     }
 
     public DayType patchDayType(Integer id, DayTypePatchDTO dto) {
         DayType dayType = dayTypeRepository.findById(id)
                 .orElseThrow(() -> new NotFoundException(id, "Тип дня"));
-        if (!dto.getDescription().isEmpty()) {
+        if (dto.getDescription() != null && !dto.getDescription().isEmpty()) {
             dayType.setDescription(dto.getDescription());
         }
         return dayTypeRepository.save(dayType);

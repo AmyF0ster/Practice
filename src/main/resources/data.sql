@@ -26,3 +26,4 @@ CREATE TABLE IF NOT EXISTS timesheet
     FOREIGN KEY (employee_FK) REFERENCES employee(employee_id) ON DELETE CASCADE,
     FOREIGN KEY (day_type_FK) REFERENCES day_type(day_type_id) ON DELETE NO ACTION
     );
+

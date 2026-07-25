@@ -9,9 +9,13 @@ import java.util.List;
 public class TimesheetService {
 
     private final TimesheetRepository timesheetRepository;
+    private final EmployeeRepository employeeRepository;
+    //private final DayTypeRepository dayTypeRepository;
 
-    public TimesheetService(TimesheetRepository timesheetRepository) {
+    public TimesheetService(TimesheetRepository timesheetRepository, EmployeeRepository employeeRepository) {
         this.timesheetRepository = timesheetRepository;
+        this.employeeRepository = employeeRepository;
+        // this.dayTyoeRepository=dayTypeRepository;
     }
 
     public List<Timesheet> getAllRecords() {
@@ -23,8 +27,17 @@ public class TimesheetService {
                 .orElseThrow(() -> new NotFoundException(id, "Запись"));
     }
 
-    public Timesheet saveRecord(Timesheet timesheet) {
-        return timesheetRepository.save(timesheet);
+    public Timesheet createRecord(TimesheetDTO dto) {
+        Timesheet newTimesheet = new Timesheet();
+        newTimesheet.setDate(dto.getDate());
+        if (employeeRepository.existsById(dto.getEmployeeId())) {
+            newTimesheet.setEmployeeId(dto.getEmployeeId());
+        } else {
+            throw new NotFoundException(dto.getEmployeeId(), "Сотрудник");
+        }
+        newTimesheet.setHours(dto.getHours());
+        newTimesheet.setDayTypeId(dto.getDayTypeId());
+        return timesheetRepository.save(newTimesheet);
     }
 
     public List<Timesheet> getTimesheetsByEmployeeIdAndDate(Integer employeeId, LocalDate startDate, LocalDate endDate) {

@@ -30,4 +30,5 @@ CREATE TABLE IF NOT EXISTS system_settings
 (
     setting_id INT AUTO_INCREMENT PRIMARY KEY,
     normal_day_hours INT NOT NULL DEFAULT 8,
+    normal_week_hours INT NOT NULL DEFAULT 40
     );

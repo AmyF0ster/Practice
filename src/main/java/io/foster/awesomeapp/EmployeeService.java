@@ -24,8 +24,13 @@ public class EmployeeService {
                 .orElseThrow(() -> new NotFoundException(id, "Сотрудник"));
     }
 
-    public Employee saveEmployee(Employee employee) {
-        return employeeRepository.save(employee);
+    public Employee createEmployee(EmployeeDTO dto) {
+        Employee newEmployee = new Employee();
+        newEmployee.setName(dto.getName());
+        newEmployee.setPosition(dto.getPosition());
+        newEmployee.setDepartment(dto.getDepartment());
+        newEmployee.setHiringDate(dto.getHiringDate());
+        return employeeRepository.save(newEmployee);
     }
 
     public Employee updateEmployee(Integer id, EmployeeDTO dto) {

@@ -29,8 +29,8 @@ public class TimesheetController {
     }
 
     @PostMapping
-    public ResponseEntity<Timesheet> createRecord(@RequestBody TimesheetDTO timesheet) {
-        Timesheet newRecord = timesheetService.createRecord(timesheet);
+    public ResponseEntity<Timesheet> createRecord(@RequestBody Timesheet timesheet) {
+        Timesheet newRecord = timesheetService.saveRecord(timesheet);
         return ResponseEntity.status(HttpStatus.CREATED).body(newRecord);
     }
 
@@ -42,6 +42,6 @@ public class TimesheetController {
 
     @PatchMapping("/{id}")
     public ResponseEntity<Timesheet> patchTimesheet(@PathVariable Integer id, @RequestBody TimesheetPatchDTO dto) {
-        return ResponseEntity.ok(timesheetService.patchTimesheet(id, dto));
+        return ResponseEntity.ok(timesheetService.patchForHoursAndDayType(id, dto));
     }
 }

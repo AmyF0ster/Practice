@@ -42,6 +42,6 @@ public class TimesheetController {
 
     @PatchMapping("/{id}")
     public ResponseEntity<Timesheet> patchTimesheet(@PathVariable Integer id, @RequestBody TimesheetPatchDTO dto) {
-        return ResponseEntity.ok(timesheetService.patchForHoursAndDayType(id, dto));
+        return ResponseEntity.ok(timesheetService.patchTimesheet(id, dto));
     }
 }

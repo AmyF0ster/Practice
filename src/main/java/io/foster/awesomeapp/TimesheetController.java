@@ -29,8 +29,8 @@ public class TimesheetController {
     }
 
     @PostMapping
-    public ResponseEntity<Timesheet> createRecord(@RequestBody Timesheet timesheet) {
-        Timesheet newRecord = timesheetService.saveRecord(timesheet);
+    public ResponseEntity<Timesheet> createRecord(@RequestBody TimesheetDTO timesheet) {
+        Timesheet newRecord = timesheetService.createRecord(timesheet);
         return ResponseEntity.status(HttpStatus.CREATED).body(newRecord);
     }
 

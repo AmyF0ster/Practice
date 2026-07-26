@@ -25,11 +25,8 @@ public class EmployeeService {
     }
 
     public Employee createEmployee(EmployeeDTO dto) {
-        Employee newEmployee = new Employee();
-        newEmployee.setName(dto.getName());
-        newEmployee.setPosition(dto.getPosition());
-        newEmployee.setDepartment(dto.getDepartment());
-        newEmployee.setHiringDate(dto.getHiringDate());
+        Employee newEmployee;
+        newEmployee= employeeMapper.mapToEmployee(dto);
         return employeeRepository.save(newEmployee);
     }
 

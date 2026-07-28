@@ -26,9 +26,11 @@ CREATE TABLE IF NOT EXISTS timesheet
     FOREIGN KEY (employee_FK) REFERENCES employee(employee_id) ON DELETE CASCADE,
     FOREIGN KEY (day_type_FK) REFERENCES day_type(day_type_id) ON DELETE NO ACTION
     );
+DROP TABLE IF EXISTS system_settings;
 CREATE TABLE IF NOT EXISTS system_settings
 (
-    setting_id INT AUTO_INCREMENT PRIMARY KEY,
-    normal_day_hours INT NOT NULL DEFAULT 8,
-    normal_week_hours INT NOT NULL DEFAULT 40
+    name VARCHAR(100) NOT NULL UNIQUE,
+    setting_value INT,
+    description VARCHAR(150)
     );
+

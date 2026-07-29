@@ -25,8 +25,7 @@ public class EmployeeService {
     }
 
     public Employee createEmployee(EmployeeDTO dto) {
-        Employee newEmployee;
-        newEmployee= employeeMapper.mapToEmployee(dto);
+        Employee newEmployee = employeeMapper.mapToEmployee(dto);
         return employeeRepository.save(newEmployee);
     }
 

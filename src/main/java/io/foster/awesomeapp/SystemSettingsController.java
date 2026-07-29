@@ -19,24 +19,9 @@ public class SystemSettingsController {
         return ResponseEntity.ok(systemSettingsService.getAllSettings());
     }
 
-    @GetMapping("/normal-day-hours")
-    public ResponseEntity<Integer> getNormalDayHours() {
-        return ResponseEntity.ok(systemSettingsService.getNormalDayHours());
-    }
-
-    @GetMapping("/normal-week-hours")
-    public ResponseEntity<Integer> getNormalWeekHours() {
-        return ResponseEntity.ok(systemSettingsService.getNormalWeekHours());
-    }
-
     @PatchMapping("/{name}")
     public ResponseEntity<SystemSettings> patchSetting(@PathVariable String name, @RequestBody SystemSettingsPatchDTO dto) {
         return ResponseEntity.ok(systemSettingsService.patchSystemSettings(name, dto));
     }
 
-    @DeleteMapping("/{name}")
-    public ResponseEntity<Void> deleteSetting(@PathVariable String name) {
-        systemSettingsService.deleteSetting(name);
-        return ResponseEntity.noContent().build();
-    }
 }

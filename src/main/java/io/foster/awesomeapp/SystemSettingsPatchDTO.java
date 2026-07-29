@@ -4,6 +4,6 @@ import lombok.Data;
 
 @Data
 public class SystemSettingsPatchDTO {
-    private Integer value;
+    private String value;
     private String description;
 }

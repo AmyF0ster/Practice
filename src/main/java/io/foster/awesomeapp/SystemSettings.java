@@ -8,12 +8,14 @@ public class SystemSettings {
     @Column("NAME")
     private String name;
     @Column("SETTING_VALUE")
-    private Integer value;
+    private String value;
     @Column("DESCRIPTION")
     private String description;
+
     public SystemSettings() {
     }
-    public SystemSettings(String name, Integer value, String description) {
+
+    public SystemSettings(String name, String value, String description) {
         this.name = name;
         this.value = value;
         this.description = description;

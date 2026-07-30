@@ -20,24 +20,21 @@ public class SystemSettingsService {
 
     public Integer getNormalDayHours() {
         SystemSettings systemSettings = systemSettingsRepository.findById("NORMAL_DAY_HOURS")
-                .orElseThrow(() -> new SettingNotFound("Норма часов в рабочем дне"));
+                .orElseThrow(() -> new SettingNotFoundException("Настройка Норма часов в рабочем дне не найдена"));
         return Integer.parseInt(systemSettings.getValue());
     }
 
     public Integer getNormalWeekHours() {
         SystemSettings systemSettings = systemSettingsRepository.findById("NORMAL_WEEK_HOURS")
-                .orElseThrow(() -> new SettingNotFound("Норма часов в рабочей неделе"));
+                .orElseThrow(() -> new SettingNotFoundException("Настройка Норма часов в рабочей неделе не найдена"));
         return Integer.parseInt(systemSettings.getValue());
     }
 
     public SystemSettings patchSystemSettings(String name, SystemSettingsPatchDTO dto) {
         SystemSettings setting = systemSettingsRepository.findById(name)
-                .orElseThrow(() -> new SettingNotFound(""));
-        if (!dto.getValue().isEmpty()) {
+                .orElseThrow(() -> new SettingNotFoundException(""));
+        if (!dto.getValue().isEmpty() && dto.getValue() != null) {
             setting.setValue(dto.getValue());
-        }
-        if (!dto.getDescription().isEmpty()) {
-            setting.setDescription(dto.getDescription());
         }
         return systemSettingsRepository.save(setting);
     }

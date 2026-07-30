@@ -29,15 +29,8 @@ CREATE TABLE IF NOT EXISTS timesheet
 
 CREATE TABLE IF NOT EXISTS system_settings
 (
-    name
-    VARCHAR
-(
-    100
-) NOT NULL UNIQUE PRIMARY KEY,
-    setting_value VARCHAR
-(
-    150
-),
+    name VARCHAR (100) NOT NULL UNIQUE PRIMARY KEY,
+    setting_value VARCHAR(150),
     description VARCHAR(150)
     );
 

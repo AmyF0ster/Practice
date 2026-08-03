@@ -34,3 +34,5 @@ CREATE TABLE IF NOT EXISTS system_settings
     description VARCHAR(150)
     );
 
+merge into system_settings (name, setting_value, description) values ('normal_day_hours', 8, 'Норма часов в рабочем дне');
+merge into system_settings (name, setting_value, description) values ('normal_week_hours', 40, 'Норма часов в рабочей неделе');

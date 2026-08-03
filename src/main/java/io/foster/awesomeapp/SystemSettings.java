@@ -1,10 +1,12 @@
 package io.foster.awesomeapp;
 
 import lombok.Data;
+import org.springframework.data.annotation.Id;
 import org.springframework.data.relational.core.mapping.Column;
 
 @Data
 public class SystemSettings {
+    @Id
     @Column("NAME")
     private String name;
     @Column("SETTING_VALUE")

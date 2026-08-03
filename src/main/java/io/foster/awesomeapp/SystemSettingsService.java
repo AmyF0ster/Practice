@@ -19,23 +19,42 @@ public class SystemSettingsService {
     }
 
     public Integer getNormalDayHours() {
-        SystemSettings systemSettings = systemSettingsRepository.findById("NORMAL_DAY_HOURS")
+        SystemSettings systemSettings = systemSettingsRepository.findById(NORMAL_DAY_HOURS)
                 .orElseThrow(() -> new SettingNotFoundException("Настройка Норма часов в рабочем дне не найдена"));
-        return Integer.parseInt(systemSettings.getValue());
+        String value = systemSettings.getValue();
+        if (value == null || value.isEmpty()) {
+            throw new IllegalArgumentException("Значение настройки NORMAL_DAY_HOURS не установлено");
+        }
+        try {
+            return Integer.parseInt(value);
+        } catch (NumberFormatException e) {
+            throw new IllegalArgumentException("Некорректное значение настройки: " + value);
+        }
     }
 
     public Integer getNormalWeekHours() {
-        SystemSettings systemSettings = systemSettingsRepository.findById("NORMAL_WEEK_HOURS")
+        SystemSettings systemSettings = systemSettingsRepository.findById(NORMAL_WEEK_HOURS)
                 .orElseThrow(() -> new SettingNotFoundException("Настройка Норма часов в рабочей неделе не найдена"));
-        return Integer.parseInt(systemSettings.getValue());
+        String value = systemSettings.getValue();
+        if (value == null || value.isEmpty()) {
+            throw new IllegalArgumentException("Значение настройки NORMAL_DAY_HOURS не установлено");
+        }
+        try {
+            return Integer.parseInt(value);
+        } catch (NumberFormatException e) {
+            throw new IllegalArgumentException("Некорректное значение настройки: " + value);
+        }
     }
 
     public SystemSettings patchSystemSettings(String name, SystemSettingsPatchDTO dto) {
         SystemSettings setting = systemSettingsRepository.findById(name)
-                .orElseThrow(() -> new SettingNotFoundException(""));
-        if (!dto.getValue().isEmpty() && dto.getValue() != null) {
-            setting.setValue(dto.getValue());
+                .orElseThrow(() -> new SettingNotFoundException("Настройка "+name+" не найдена"));
+        if (dto.getValue() != null && !dto.getValue().isEmpty()) {
+
+                setting.setValue(dto.getValue());
+
         }
+        else {throw new SettingNotFoundException("Нононо переделывай");}
         return systemSettingsRepository.save(setting);
     }
 

@@ -1,5 +1,9 @@
-package io.foster.awesomeapp;
+package io.foster.awesomeapp.service;
 
+import io.foster.awesomeapp.dto.DayTypePatchDTO;
+import io.foster.awesomeapp.repository.DayTypeRepository;
+import io.foster.awesomeapp.exception.NotFoundException;
+import io.foster.awesomeapp.entity.DayType;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

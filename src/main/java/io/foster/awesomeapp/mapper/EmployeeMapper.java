@@ -1,5 +1,7 @@
-package io.foster.awesomeapp;
+package io.foster.awesomeapp.mapper;
 
+import io.foster.awesomeapp.dto.EmployeeDTO;
+import io.foster.awesomeapp.entity.Employee;
 import org.springframework.stereotype.Component;
 
 @Component

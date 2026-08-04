@@ -1,7 +1,6 @@
-package io.foster.awesomeapp;
+package io.foster.awesomeapp.dto;
 
 import lombok.Data;
-import org.springframework.data.relational.core.mapping.Column;
 
 @Data
 public class SystemSettingDTO {

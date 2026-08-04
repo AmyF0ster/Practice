@@ -1,5 +1,9 @@
-package io.foster.awesomeapp;
+package io.foster.awesomeapp.service;
 
+import io.foster.awesomeapp.exception.SettingNotFoundException;
+import io.foster.awesomeapp.dto.SystemSettingsPatchDTO;
+import io.foster.awesomeapp.repository.SystemSettingsRepository;
+import io.foster.awesomeapp.entity.SystemSettings;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

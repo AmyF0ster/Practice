@@ -1,4 +1,4 @@
-package io.foster.awesomeapp;
+package io.foster.awesomeapp.dto;
 
 import lombok.Data;
 

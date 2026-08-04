@@ -1,5 +1,8 @@
-package io.foster.awesomeapp;
+package io.foster.awesomeapp.controller;
 
+import io.foster.awesomeapp.dto.DayTypePatchDTO;
+import io.foster.awesomeapp.entity.DayType;
+import io.foster.awesomeapp.service.DayTypeService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

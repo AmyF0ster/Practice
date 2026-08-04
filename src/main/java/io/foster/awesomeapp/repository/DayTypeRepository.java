@@ -1,5 +1,6 @@
-package io.foster.awesomeapp;
+package io.foster.awesomeapp.repository;
 
+import io.foster.awesomeapp.entity.DayType;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 

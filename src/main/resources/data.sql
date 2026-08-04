@@ -27,3 +27,12 @@ CREATE TABLE IF NOT EXISTS timesheet
     FOREIGN KEY (day_type_FK) REFERENCES day_type(day_type_id) ON DELETE NO ACTION
     );
 
+CREATE TABLE IF NOT EXISTS system_settings
+(
+    name VARCHAR (100) NOT NULL UNIQUE PRIMARY KEY,
+    setting_value VARCHAR(150),
+    description VARCHAR(150)
+    );
+
+merge into system_settings (name, setting_value, description) values ('normal_day_hours', 8, 'Норма часов в рабочем дне');
+merge into system_settings (name, setting_value, description) values ('normal_week_hours', 40, 'Норма часов в рабочей неделе');

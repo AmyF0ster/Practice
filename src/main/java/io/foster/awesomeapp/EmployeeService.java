@@ -24,8 +24,9 @@ public class EmployeeService {
                 .orElseThrow(() -> new NotFoundException(id, "Сотрудник"));
     }
 
-    public Employee saveEmployee(Employee employee) {
-        return employeeRepository.save(employee);
+    public Employee createEmployee(EmployeeDTO dto) {
+        Employee newEmployee = employeeMapper.mapToEmployee(dto);
+        return employeeRepository.save(newEmployee);
     }
 
     public Employee updateEmployee(Integer id, EmployeeDTO dto) {

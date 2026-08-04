@@ -10,12 +10,12 @@ public class TimesheetService {
 
     private final TimesheetRepository timesheetRepository;
     private final EmployeeRepository employeeRepository;
-    //private final DayTypeRepository dayTypeRepository;
+    private final DayTypeRepository dayTypeRepository;
 
-    public TimesheetService(TimesheetRepository timesheetRepository, EmployeeRepository employeeRepository) {
+    public TimesheetService(TimesheetRepository timesheetRepository, EmployeeRepository employeeRepository, DayTypeRepository dayTypeRepository) {
         this.timesheetRepository = timesheetRepository;
         this.employeeRepository = employeeRepository;
-        // this.dayTyoeRepository=dayTypeRepository;
+        this.dayTypeRepository = dayTypeRepository;
     }
 
     public List<Timesheet> getAllRecords() {
@@ -36,7 +36,11 @@ public class TimesheetService {
             throw new NotFoundException(dto.getEmployeeId(), "Сотрудник");
         }
         newTimesheet.setHours(dto.getHours());
-        newTimesheet.setDayTypeId(dto.getDayTypeId());
+        if (dayTypeRepository.existsById(dto.getDayTypeId())) {
+            newTimesheet.setDayTypeId(dto.getDayTypeId());
+        } else {
+            throw new NotFoundException(dto.getDayTypeId(), "Тип дня");
+        }
         return timesheetRepository.save(newTimesheet);
     }
 

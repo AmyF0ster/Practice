@@ -1,4 +1,4 @@
-package io.foster.awesomeapp;
+package io.foster.awesomeapp.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

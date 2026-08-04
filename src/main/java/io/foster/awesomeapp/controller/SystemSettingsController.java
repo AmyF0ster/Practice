@@ -1,5 +1,8 @@
-package io.foster.awesomeapp;
+package io.foster.awesomeapp.controller;
 
+import io.foster.awesomeapp.dto.SystemSettingsPatchDTO;
+import io.foster.awesomeapp.entity.SystemSettings;
+import io.foster.awesomeapp.service.SystemSettingsService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 

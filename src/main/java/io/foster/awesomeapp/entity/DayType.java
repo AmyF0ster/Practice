@@ -1,4 +1,4 @@
-package io.foster.awesomeapp;
+package io.foster.awesomeapp.entity;
 
 import lombok.Data;
 import org.springframework.data.relational.core.mapping.Column;

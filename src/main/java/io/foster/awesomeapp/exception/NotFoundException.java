@@ -1,4 +1,4 @@
-package io.foster.awesomeapp;
+package io.foster.awesomeapp.exception;
 
 public class NotFoundException extends RuntimeException{
     private Integer resourceId;

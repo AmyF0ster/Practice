@@ -1,5 +1,9 @@
-package io.foster.awesomeapp;
+package io.foster.awesomeapp.controller;
 
+import io.foster.awesomeapp.dto.TimesheetDTO;
+import io.foster.awesomeapp.dto.TimesheetPatchDTO;
+import io.foster.awesomeapp.entity.Timesheet;
+import io.foster.awesomeapp.service.TimesheetService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
